@@ -1,0 +1,26 @@
+<a href="{% url 'accounts-logout' %}"> Logout </a>
+
+<h1> Hello {{ user }}!</h1>
+
+<br>
+<ol>
+    <h2>Your Favorites </h2>
+
+    	{% for q in fav %}
+    		<li> {{ q.quote_id.quote_by }}:{{ q.quote_id.quote_txt }} <a href="{% url 'quote-remove' q.id %}"> Remove from My List </a> Posted by <a href="{% url 'posts' q.quote_id.posted_id.id %}">{{ q.quote_id.posted_id.alias }}</a>   </li>
+    	{% endfor %}
+
+</ol>
+<br>
+<ol>
+    <h2>Quotable Quotes</h2>
+        {% for q in otherlist %}
+
+            	<li> {{ q.quote_by}} : {{q.quote_txt}}<a href="{% url 'quote-add' q.id %}"> Add To My List  </a> Posted by <a href="{% url 'posts' q.posted_id.id %}">{{ q.posted_id.alias }}</a>  </li>
+
+        {% endfor %}
+</ol>
+
+<br>
+<a href="{% url 'quote-create' %}"> Add Quote </a>
+

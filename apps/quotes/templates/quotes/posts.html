@@ -1,0 +1,21 @@
+<a href="{% url 'accounts-logout' %}"> Logout </a>
+
+
+<h1> Posts by {{ user.alias }}! </h1>
+Count: {{count}}
+<br>
+<br>
+<br>
+
+	{% for p in posts %}
+		<li> {{p.quote_by}}:{{p.quote_txt}} </li>
+	{% endfor %}
+
+<br>
+<br>
+<br>
+<a href="{% url 'quote-dashboard' %}"> Dashboard </a>
+
+
+<br>
+
